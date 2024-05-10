@@ -1,0 +1,15 @@
+After you are donw with config of Google App Engine
+1.Clone the Google Cloud Platform Samples Repository: Clone the repository containing the Google Cloud Platform samples to your local machine. You can do this using the following command:
+git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+
+2.Navigate to the App Engine Python Examples Directory: Once you've cloned the repository, navigate to the directory containing the App Engine Python examples:
+cd python-docs-samples/appengine/standard_python3/hello_world
+
+3.Install Dependencies (if any): Check if there are any dependencies required for the example you want to run. Usually, you'll find a requirements.txt file that lists the dependencies. Install them using pip:
+pip install -r requirements.txt
+
+4.Run the Example Locally: You can now run the example locally using the following command:
+python main.py
+
+5.Deploy the Example to App Engine: Once you're satisfied with the example running locally, you can deploy it to App Engine using the following command:
+gcloud app deploy
