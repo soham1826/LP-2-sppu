@@ -1,0 +1,39 @@
+# Install Python: Google App Engine supports Python. Make sure you have Python installed on your system. You can install Python using the following command:
+sudo apt update
+sudo apt install python3 python3-pip
+
+#Install Google Cloud SDK: Google Cloud SDK includes the App Engine SDK and CLI tools. You can install it using the following commands:
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt update && sudo apt install google-cloud-sdk
+
+#Authenticate with Google Cloud: After installing the SDK, you need to authenticate with your Google Cloud account. Run the following command and follow the instructions:
+gcloud auth login
+
+#Create a Python App Engine Project: Create a directory for your project and navigate into it:
+mkdir my_app
+cd my_app
+
+#Initialize App Engine Project: Initialize your App Engine project using the following command. Replace [YOUR_PROJECT_ID] with your desired project ID:
+gcloud init
+
+#Write a Python Hello World Application: Create a Python file named main.py in your project directory with the following code:
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
+
+#Install Flask: Since the example uses Flask, you need to install it using pip:
+pip install Flask
+
+#Run the Application Locally: You can now run your application locally using the following command:
+python main.py
+
+#Deploy the Application to App Engine: Once you're satisfied with your application locally, you can deploy it to App Engine using the following command:
+gcloud app deploy
